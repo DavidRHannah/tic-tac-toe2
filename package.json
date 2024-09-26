@@ -1,0 +1,17 @@
+{
+    "name": "tictactoe2",
+    "description": "TicTacToe2 - With unit testing",
+    "authors": "David Hannah",
+    "version": "0.0.1",
+    "main": "./script.js",
+    "type": "module",
+    "dependencies": {},
+    "scripts": {
+        "test": "jest"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.js$": "babel-jest"
+        }
+    }
+}
