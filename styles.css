@@ -1,0 +1,95 @@
+body{
+    margin: 1rem;
+    padding: 0;
+    background: rgb(242, 242, 242);
+    font-family: monospace, monospace, sans-serif;
+    color: white;
+}
+button {
+    all: unset;
+} 
+button:focus {
+    outline: revert;
+    cursor: pointer;
+}
+.game-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto; 
+    justify-content: flex-start;
+    flex: 1; 
+    align-content: center;
+}
+
+.banner-container {
+    display: grid;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    text-align: center;
+    margin: 1rem auto;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 0;
+}
+
+.banner-main-container{
+    border-radius: 1rem;
+    background-color: salmon;
+    align-content: center;
+}
+.banner-info-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.25rem;
+}
+
+.current-marker {    
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: lightblue;
+    align-content: center;
+}
+
+.current-player {    
+    border-radius: 1rem;
+    background-color: lightgreen;
+    align-content: center;
+}
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-content: center;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgb(34, 177, 76);    
+    flex: 1;
+
+}
+.grid-square{
+    display: flex;
+    background-color: rgb(255, 201, 14);
+    box-shadow: rgba(217, 207, 213, 0.4) 2px 3px;
+    width: auto;
+    height: 5rem;
+    border-radius: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 200ms ease;
+}
+
+.grid-square:hover{
+    cursor: pointer;
+    outline: solid 1px rgb(2, 151, 45);
+    box-shadow: none;
+}

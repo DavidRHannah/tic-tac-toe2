@@ -19,10 +19,6 @@ class GameBoard {
         const index = ((row-1)*3) + col - 1;
         return index;
     }
-
-    // row and col are 1-indexed
-    // false if index out of bounds
-    // true if mark applied 
     mark(row, col, marker){
         const index = this.rowColToIndex(row,col);
         if (index === false){

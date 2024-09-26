@@ -1,6 +1,6 @@
 import Player from "./Player.js";
 
-class PlayerManager{
+class PlayerManager {
     constructor(playerOneName, playerTwoName){
         this.playerOne = new Player(playerOneName, 'o');
         this.playerTwo = new Player(playerTwoName, 'x');
