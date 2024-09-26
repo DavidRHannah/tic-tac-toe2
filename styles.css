@@ -3,7 +3,6 @@ body{
     padding: 0;
     background: rgb(242, 242, 242);
     font-family: monospace, monospace, sans-serif;
-    color: white;
 }
 button {
     all: unset;
@@ -13,6 +12,7 @@ button:focus {
     cursor: pointer;
 }
 .game-container{
+    color: white;
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -40,6 +40,7 @@ button:focus {
     border-radius: 1rem;
     background-color: salmon;
     align-content: center;
+    font-size: 1.3rem;
 }
 .banner-info-container {
     display: grid;
@@ -52,12 +53,14 @@ button:focus {
     border-radius: 1rem;
     background-color: lightblue;
     align-content: center;
+    font-size: 1.5rem;
 }
 
 .current-player {    
     border-radius: 1rem;
     background-color: lightgreen;
     align-content: center;
+    font-size: 1.2rem;
 }
 .grid {
     display: grid;
@@ -86,10 +89,44 @@ button:focus {
     justify-content: center;
     align-items: center;
     transition: background-color 200ms ease;
+    font-size: 3rem;
 }
 
 .grid-square:hover{
     cursor: pointer;
     outline: solid 1px rgb(2, 151, 45);
     box-shadow: none;
+}
+
+.modal {
+    display: none;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+}
+.modal-content button{
+    cursor:pointer;
+    background: rgb(178, 177, 177);
+    border: solid 1px black;
+    padding: 0.25rem;
+}
+.modal-content button:hover{
+    background: rgb(38, 127, 56);
+    color:rgb(255, 255, 255);
+    
+
 }

@@ -1,15 +1,25 @@
 import GameBoard from "./GameBoard.js";
 import PlayerManager from "./PlayerManager.js";
 import DisplayController from "./DisplayController.js";
+import ArtificialOpponent from "./ArtificialOpponent.js";
+import ModalController from "./ModalController.js";
+
 
 class Game {
-    constructor() {
+    constructor(modalController, mode) {
         this.board = new GameBoard();
         this.playerManager = new PlayerManager("Player One", "Player Two");
         this.displayController = new DisplayController();
+        this.modalController = modalController;
         this.gameOver = false;
         this.turnCount = 0;
         this.winner = null;
+        this.mode = mode;
+        if (this.mode === 'PVE') {
+            this.ai = new ArtificialOpponent("X");
+        } else{
+
+        }
     }
 
     start() {
@@ -22,6 +32,7 @@ class Game {
             btn.addEventListener('click', () => this.playTurn(btn.id));
         });
     }
+
 
     playTurn(index) {
         if (this.gameOver) return;
@@ -37,15 +48,22 @@ class Game {
                 this.gameOver = true;
                 this.winner = this.playerManager.getCurrentPlayer();
                 this.displayController.updateMainBanner(`${this.winner.name} Won!`);
+                this.modalController.endGame();
             } else {
                 this.turnCount++;
                 if (this.turnCount > 8) {
                     this.gameOver = true;
                     this.displayController.updateMainBanner("It's a Tie!");
+                    this.modalController.endGame();
                 } else {
                     this.playerManager.switchPlayer();
                     this.displayController.updateCurrentMarkerBanner(this.playerManager.getCurrentPlayer().marker);
-                    this.displayController.updateCurrentPlayerBanner(`${this.playerManager.getCurrentPlayer().name}`);
+                    this.displayController.updateCurrentPlayerBanner(this.playerManager.getCurrentPlayer().name);
+                    
+                     if (this.playerManager.getCurrentPlayer().name == "Player Two"   && this.mode == "PVE") {
+                        const aiMove = this.ai.getBestMove(this.board.getBoard());
+                        this.playTurn(aiMove);
+                    }
                 }
             }
         }

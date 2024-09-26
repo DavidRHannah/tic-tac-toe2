@@ -1,4 +1,6 @@
-import Game from './scripts/Game.js';
+import ModalController from './scripts/ModalController.js';
 
-const g = new Game;
-g.start();
+document.addEventListener("DOMContentLoaded", () => {
+    const modalController = new ModalController();
+    modalController.begin();
+});
